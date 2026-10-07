@@ -665,6 +665,7 @@ public class BusPublicador : IBusPublicador
         SetCampo(form, "904_32_S21_Value", totalHoras > 0 ? totalHoras.ToString() : string.Empty);
         SetCampo(form, "905_32_Text_SanSerif", totalCursos > 0 ? totalCursos.ToString() : string.Empty);
 
+        form.GetPdfObject().Put(PdfName.NeedAppearances, PdfBoolean.FALSE);
         pdfDoc.Close();
         return ms.ToArray();
     }
@@ -808,7 +809,6 @@ public class BusPublicador : IBusPublicador
                 if (!informesFiltrados.Any()) continue;
 
                 int cantidadParticiparon = informesFiltrados
-                    .Where(i => i.Participo)
                     .Select(i => i.IdPublicador)
                     .Distinct()
                     .Count();
@@ -830,6 +830,7 @@ public class BusPublicador : IBusPublicador
             SetCampo(form, "904_32_S21_Value", mostrarHoras && totalHorasAnual > 0 ? totalHorasAnual.ToString() : string.Empty);
             SetCampo(form, "905_32_Text_SanSerif", totalCursosAnual > 0 ? totalCursosAnual.ToString() : string.Empty);
 
+            form.GetPdfObject().Put(PdfName.NeedAppearances, PdfBoolean.FALSE);
             pdfDoc.Close();
             return ApiResponse<byte[]>.Ok(ms.ToArray(), "Tarjeta resumen generada.");
         }

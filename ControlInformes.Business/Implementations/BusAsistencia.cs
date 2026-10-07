@@ -356,6 +356,7 @@ public class BusAsistencia : IBusAsistencia
             SetCampo(form, "4-Average_Total",
                 cntFS2 > 0 ? Math.Round(totalFS2 / cntFS2, 1).ToString("F1") : string.Empty);
 
+            form.GetPdfObject().Put(PdfName.NeedAppearances, PdfBoolean.FALSE);
             pdfDoc.Close();
             return ApiResponse<byte[]>.Ok(ms.ToArray(), "Tarjeta de reuniones generada.");
         }
