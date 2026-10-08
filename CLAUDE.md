@@ -9,6 +9,14 @@ ASP.NET Core 8 Web API (`ControlInformes`) for managing congregation publisher r
 publisher cards (iText7) and imports/exports Excel data (ClosedXML). Code, entities, and
 domain language are in Spanish — match that convention.
 
+## Documento de referencia obligatorio
+
+`DOCUMENTACION-API.md` (raiz del repo) documenta **todos los endpoints, enums, reglas de
+negocio y validaciones** vigentes. Antes de hacer cualquier cambio, leelo y usalo como
+referencia. Si un cambio agrega, modifica o elimina un endpoint, un enum, una validacion o
+una regla de negocio, **actualiza `DOCUMENTACION-API.md` en el mismo cambio** (incluida la
+fecha de "Ultima actualizacion" de su cabecera).
+
 ## Commands
 
 Run all commands from the repo root. Build/run target the solution; `dotnet` operations
